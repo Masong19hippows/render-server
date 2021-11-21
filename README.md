@@ -6,6 +6,7 @@ You can either do this via google drive, a built-in webserver, or both.<br />
 There is also an option for HiveOS. Durring a render, it will turn the mining off and then back on when it's done.<br />
 
 ## Setup
+**Needs** python3.7 <br />
 There is a setup script in the main directory. Execute this with riit with the following commands:<br />
 `sudo ./setup -f` for a webserver.<br />
 `sudo ./setup -g` for google drive support.<br />
