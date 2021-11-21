@@ -13,7 +13,7 @@ from googleapiclient.http import MediaFileUpload
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/drive']
 creds = None
-mydir = os.path.dirname(__file__)
+mydir = os.path.dirname(os.path.realpath(__file__))
 
 if os.path.exists(mydir + '/creds/token.pickle'):
     with open(mydir + '/creds/token.pickle', 'rb') as token:
@@ -34,7 +34,7 @@ service = build('drive', 'v3', credentials=creds)
 # Gets the newly updated folder form google drive
 def get_folders():
     # Call the Drive v3 API
-    results = service.files().list(q="('1YbpTyVhZgKofR2j9AqFmq55p1poyUtBn' in parents)" + "and" + "(mimeType='application/vnd.google-apps.folder')",
+    results = service.files().list(q="('1Ya45C7YwnKpKhSEJGwYc7oM-onhbZs0f' in parents)" + "and" + "(mimeType='application/vnd.google-apps.folder')",
     fields="nextPageToken, files(id, name)").execute()
     items = results.get('files', [])
     return items
