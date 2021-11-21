@@ -8,7 +8,7 @@ import threading
 import uploadserver
 
 # Time to search for files and render path
-time.sleep(20)
+time.sleep(60)
 render_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "render")
 upload_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "upload")
 sec = 10
