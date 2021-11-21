@@ -15,18 +15,18 @@ if  [[ $1 = "-H" || $2 = "-H" || $3 = "-H" ]]; then
         if [[ $1 = "-f" ]]; then
             if [[ $2 = "-g" ]]; then
                 python3.7 drive.py
-                printf "@reboot root $DIR/main.py '-GFH'" > /etc/cron.d/blender-server
+                printf "@reboot root $DIR/main.py '-GFH'\n" > /etc/cron.d/blender-server
             else
-                printf "@reboot root $DIR/main.py '-FH'" > /etc/cron.d/blender-server
+                printf "@reboot root $DIR/main.py '-FH'\n" > /etc/cron.d/blender-server
             fi
         fi
         if [[ $1 = "-g" ]]; then
             if [[ $2 = "-f" ]]; then
                 python3.7 drive.py
-                printf "@reboot root $DIR/main.py '-GFH'" > /etc/cron.d/blender-server
+                printf "@reboot root $DIR/main.py '-GFH'\n" > /etc/cron.d/blender-server
             else
                 python3.7 drive.py
-                printf "@reboot root $DIR/main.py '-GH'" > /etc/cron.d/blender-server
+                printf "@reboot root $DIR/main.py '-GH'\n" > /etc/cron.d/blender-server
             fi
         fi
     fi    
@@ -35,18 +35,18 @@ elif [[ $1 = "-f" || $1 = "-g" ]]; then
     if [[ $1 = "-f" ]]; then
         if [[ $2 = "-g" ]]; then
             python3.7 drive.py
-            printf "@reboot root $DIR/main.py '-GF'" > /etc/cron.d/blender-server
+            printf "@reboot root $DIR/main.py '-GF'\n" > /etc/cron.d/blender-server
         else
-            printf "@reboot root $DIR/main.py '-F'" > /etc/cron.d/blender-server
+            printf "@reboot root $DIR/main.py '-F'\n" > /etc/cron.d/blender-server
         fi
     fi
     if [[ $1 = "-g" ]]; then
         if [[ $2 = "-f" ]]; then
             python3.7 drive.py
-            printf "@reboot root $DIR/main.py '-GF'" > /etc/cron.d/blender-server
+            printf "@reboot root $DIR/main.py '-GF'\n" > /etc/cron.d/blender-server
         else
             python3.7 drive.py
-            printf "@reboot root $DIR/main.py '-G'" > /etc/cron.d/blender-server
+            printf "@reboot root $DIR/main.py '-G'\n" > /etc/cron.d/blender-server
         fi
     fi
 
