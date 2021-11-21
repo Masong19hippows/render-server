@@ -11,7 +11,7 @@ import uploadserver
 time.sleep(60)
 render_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "render")
 upload_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "upload")
-sec = 10
+sec = 60 * 5
 # Adding arguments for the type of server wanted
 parser = argparse.ArgumentParser()
 parser.add_argument("-H", "--hive", action='store_true', help="help")
