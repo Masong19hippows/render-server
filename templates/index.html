@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>File Upload to Python HTTP Server</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script> 
+<link rel="stylesheet" href="fileupload.css">
+</head>
+<body>
+<div data-role="page" style="background:#5594ab;">
+    <div data-role="header">
+        <p class="center">File Upload to Render Server</p>
+    </div>
+    <div data-role="content">
+        <div class="main-content">
+			<form action={{ test() }}>
+                <input type="file" name="myfile">
+				<input type="submit" class="ui-corner-all" value="Upload Single File">
+			</form>
+            <br>
+			<form action={{ test }} method="post" enctype="multipart/form-data" data-ajax="false">
+				<input type="file" name="myfile" multiple>
+				<input type="submit" class="ui-corner-all" value="Upload Multiple File">
+			</form>
+        </div>
+    </div>
+</div>
+</body>

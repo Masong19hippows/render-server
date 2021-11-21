@@ -1,0 +1,6 @@
+.main-content { margin:0% 5%; font-size: 1em; text-shadow: none; }
+.align-left { text-align: left; }
+.center { text-align: center; font-weight: bold; }
+input[type=file] { background: #306b5e; color: white; text-shadow: none; height: 70px; padding: 20px 10px; }
+input[type=submit] { background: red; }
+img { width: 20px; }
