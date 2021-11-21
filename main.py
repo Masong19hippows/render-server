@@ -47,7 +47,6 @@ def file_server():
     while True:
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
         compare = os.listdir(upload_dir)
-        print(compare)
         time.sleep(sec)
         new = os.listdir(upload_dir)
         for file in new:
