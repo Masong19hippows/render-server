@@ -22,10 +22,10 @@ def render_hive(folder_name):
 
     # Making output directory
     output_dir = os.path.join(render_path, folder_name, "output")
-    os.system(f"mkdir -p {output_dir}")
+    os.system(f"mkdir -p {output_dir} > /dev/null 2>&1")
     
     # Starting to render
-    os.system(f"blender -b {get_blend_file(folder_name)} -o {output_dir} -E CYCLES -a -- -cycles-device CUDA+OPENCL+CPU")
+    os.system(f"blender -b {get_blend_file(folder_name)} -o {output_dir} -E CYCLES -a -- -cycles-device CUDA+OPENCL+CPU > /dev/null 2>&1")
 
     #Turning miner back on
     if hive.check() == False:
@@ -35,8 +35,8 @@ def render_hive(folder_name):
 def render(folder_name):
     # Making output directory
     output_dir = os.path.join(render_path, folder_name, "output")
-    os.system(f"mkdir -p {output_dir}")
+    os.system(f"mkdir -p {output_dir} > /dev/null 2>&1")
     
 
     # Starting to render
-    os.system(f"blender -b {get_blend_file(folder_name)} -o {output_dir} -E CYCLES -a -- -cycles-device CUDA+OPENCL+CPU")
+    os.system(f"blender -b {get_blend_file(folder_name)} -o {output_dir} -E CYCLES -a -- -cycles-device CUDA+OPENCL+CPU > /dev/null 2>&1")

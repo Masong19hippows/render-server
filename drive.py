@@ -47,7 +47,7 @@ def download(dir, id):
     for item in items:
         if item['mimeType'] == "application/vnd.google-apps.folder":
             new_dir = os.path.join(dir, item['name'])
-            os.system(f"mkdir -p {new_dir}")
+            os.system(f"mkdir -p {new_dir} > /dev/null 2>&1")
             download(new_dir, item['id'])
 
         else:
