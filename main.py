@@ -67,7 +67,8 @@ if args.drive:
         p2.start()
         p1.start()
     else:
-        drive_timer()
+        p1 = threading.Thread(target=drive_timer)
+        p1.start()
 else:
     if args.fileServer:
         p1 = threading.Thread(target=uploadserver.main)
