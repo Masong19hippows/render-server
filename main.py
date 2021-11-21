@@ -45,6 +45,7 @@ def drive_timer():
 # Adds webserver support to render files remotely
 def file_server():
     while True:
+        os.chdir(os.path.dirname(os.path.abspath(__file__)))
         compare = os.listdir(upload_dir)
         print(compare)
         time.sleep(sec)

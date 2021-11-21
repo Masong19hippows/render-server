@@ -3,6 +3,7 @@ import http.server, http, cgi, pathlib, sys, argparse, ssl, os, builtins
 # Does not seem to do be used, but leaving this import out causes uploadserver to not receive IPv4 requests when
 # started with default options under Windows
 import socket 
+dir = os.path.dirname(os.path.realpath(__file__))
 
 if sys.version_info.major > 3 or sys.version_info.minor >= 7:
     import functools
@@ -12,29 +13,28 @@ if sys.version_info.major > 3 or sys.version_info.minor >= 8:
 
 UPLOAD_PAGE = bytes('''<!DOCTYPE html>
 <html>
-<head>
-<title>File Upload</title>
-<meta name="viewport" content="width=device-width, user-scalable=no" />
-<style type="text/css">
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #000;
-    color: #fff;
-  }
-}
-</style>
-</head>
-<body onload="document.getElementsByName('token')[0].value=localStorage.token || ''">
-<h1>File Upload</h1>
-<form action="upload" method="POST" enctype="multipart/form-data">
-<input name="files" type="file" multiple />
-<br />
-<br />
-Token (only needed if server was started with token option): <input name="token" type="text" />
-<br />
-<br />
-<input type="submit" onclick="localStorage.token = document.getElementsByName('token')[0].value" />
-</form>
+   <head>
+      <title>Zipped Render Folder Upload</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script> 
+      <link rel="stylesheet" href="templates/fileupload.css">
+   </head>
+   <body onload="document.getElementsByName('token')[0].value=localStorage.token || ''">
+      <div data-role="page" style="background:#5594ab;">
+         <div data-role="header">
+                 <p class="center">File Upload to Render Server</p>
+             </div>
+        <div data-role="content">
+        <div class="main-content">
+			<form action="upload" method="POST" enctype="multipart/form-data" data-ajax="false">
+                <input name="files" type="file" multiple />
+				<input type="submit" class="ui-corner-all" value="Upload Single File" onclick="localStorage.token = document.getElementsByName('token')[0].value" />
+			</form>
+        </div>
+    </div>
+</div>
 </body>
 </html>''', 'utf-8')
 
@@ -242,10 +242,9 @@ def main():
     
     # Directory option was added to http.server in Python 3.7
     if sys.version_info.major > 3 or sys.version_info.minor >= 7:
-        parser.add_argument('--directory', '-d', default=os.getcwd(),
-            help='Specify alternative directory [default:current directory]')
+        parser.add_argument('--directory', '-d', default=dir, help='Specify alternative directory [default:current directory]')
     
     args = parser.parse_args()
-    if not hasattr(args, 'directory'): args.directory = os.getcwd()
+    if not hasattr(args, 'directory'): args.directory = dir
     
     serve_forever()
