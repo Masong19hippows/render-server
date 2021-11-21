@@ -13,4 +13,10 @@ There is a setup script in the main directory. Execute this with riit with the f
 `sudo ./setup -f -g` for a webserver and google drive support.<br />
 `sudo ./setup -f -h -H` for HiveOS support.<br />
 
-### Enjoy!
+For google drive to work; there is some extra setup.<br />
+Go to google cloud console and then enable the drive api. Once this is done, create credentials for this project.<br />
+After this, edit the credentials and put `http://localhost:8080` as the redirect uri.<br />
+Then, download the json file for credentials. Rename this file to `credentials.json` and place it in the creds directory.<br />
+If you use the setup with -g flag, then it will have you authorize the api by going to a url.
+
+### All Done. Enjoy!
