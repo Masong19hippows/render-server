@@ -42,6 +42,7 @@ def drive_timer():
                 else:
                     render.render(file['name'])
                     drive.upload(os.path.join(render_path, file['name'], "output"), file['id'])
+        time.sleep(2)
 
 
 # Adds webserver support to render files remotely
@@ -58,6 +59,7 @@ def file_server():
                     render.render_hive(os.path.splitext(file)[0])
                 else:
                     render.render(os.path.splitext(file)[0])
+        time.sleep(2)
 
 
 # Figures out what to do based on arguments given
