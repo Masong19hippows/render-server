@@ -1,5 +1,4 @@
 import os
-import sys
 
 # >/dev/null 2>&1
 def check():

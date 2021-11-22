@@ -11,12 +11,12 @@ import uploadserver
 time.sleep(60)
 render_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "render")
 upload_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "upload")
-sec = 60 * 5
+sec = 60 * 1
 # Adding arguments for the type of server wanted
 parser = argparse.ArgumentParser()
-parser.add_argument("-H", "--hive", action='store_true', help="help")
-parser.add_argument("-G", "--drive", action='store_true', help="help")
-parser.add_argument("-F", "--fileServer", action='store_true', help="help")
+parser.add_argument("-H", "--hive", action='store_true', help="HiveOS Support")
+parser.add_argument("-G", "--drive", action='store_true', help="Google Drive Support")
+parser.add_argument("-F", "--fileServer", action='store_true', help="Adding Built-in File-Server")
 args = parser.parse_args()
 
 # Importing files based on server selected
