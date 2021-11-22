@@ -38,8 +38,10 @@ def drive_timer():
                 drive.download(os.path.join(render_path, file['name']), file['id'])
                 if args.hive:
                     render.render_hive(file['name'])
+                    drive.upload(os.path.join(render_path, file['name'], "output"), file['id'])
                 else:
                     render.render(file['name'])
+                    drive.upload(os.path.join(render_path, file['name'], "output"), file['id'])
 
 
 # Adds webserver support to render files remotely
